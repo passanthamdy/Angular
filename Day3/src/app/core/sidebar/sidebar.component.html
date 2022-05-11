@@ -1,0 +1,64 @@
+
+<div class="container">
+  <form>
+    <div class="row mb-5">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="First name"  #inputFirstName>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Last name"  #inputLastName>
+      </div>
+      <div class="col">
+        <!-- <input type="number" class="form-control" placeholder="Age" [(ngModel)]="student.age " #inputAge> -->
+        <input type="number" class="form-control"  placeholder="Age" #inputAge>
+      </div>
+      <!-- <h4 class="mt-3" [class.red-color]="student.age<10"[class.green-color]="student.age>=10">your Age is {{student.age}}</h4> -->
+
+
+    </div>
+    <button type="button" class="btn btn-primary offset-4 col-5 mb-4" (click)="add(inputFirstName.value,inputLastName.value,inputAge.value)">Add Student</button>
+    <p class="offset-1 text-danger font-weight-bold" >Student Count : {{getSudentCount()}}</p>
+  </form>
+  <table class="table">
+    <thead>
+      <td>#</td>
+      <td>Full Name</td>
+      <td>Age</td>
+      <td>Delete</td>
+      <td>Edit</td>
+
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of students; let currentIndex=index">
+        <td>{{currentIndex+1}}</td>
+        <td>{{item.firstName}} {{item.lastName}}</td>
+        <td>{{item.age}}</td>
+        <td><button type="button" (click)="delete(currentIndex)" class="btn btn-danger">Delete</button></td>
+        <td><button type="button" (click)="edit(inputFirstName.value, inputLastName.value,inputAge.value, currentIndex)" class="btn btn-primary">Edit</button></td>
+
+      </tr>
+    </tbody>
+  </table>
+  <br><br>
+
+  <h1> Pipes test  </h1>
+  <div class="container">
+    <h2>Power To X</h2>
+
+    <h4>{{10| powerToX }}</h4>
+    <hr>
+    <h2>Convert string test</h2>
+    <h4>original list</h4>
+    <ul>
+      <li *ngFor="let x of strings"> {{x  }} </li>
+    </ul>
+    <br>
+    <h4>filtered list</h4>
+    <ul>
+      <li *ngFor="let x of strings |stringConvert"> {{x  }} </li>
+    </ul>
+    <hr>
+
+  </div>
+
+</div>
