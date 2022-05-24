@@ -1,0 +1,87 @@
+<div class="container">
+  <form>
+    <div class="row mb-5">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Product Name"  #productName>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Code"  #prodoctCode>
+      </div>
+      <div class="col">
+        <input type="file" class="form-control" placeholder="image"  #productImg>
+      </div>
+      <div class="col">
+        <input type="number" class="form-control"  placeholder="Price" #productPrice>
+      </div>
+      <div class="col">
+        <p-calendar  dateFormat="MM dd, yy" #available ></p-calendar>
+            </div>
+            <div class="col">
+              <p-rating formControlName="score" #rating></p-rating>
+                              </div>
+
+
+    </div>
+    <button pButton type="button" class="p-button-raised p-button-info offset-4 col-5 mb-4"
+    (click)="addProduct(productName.value, prodoctCode.value, productPrice.value, productImg.value, available.value,rating.value)">Add New Product</button>
+  </form>
+  <div class="col-3">
+    <input type="text "  [(ngModel)]="filter">
+  </div>
+  <button pButton type="button" (click)="showImg()"
+    class="p-button-raised p-button-help">Show Images</button>
+  <table class="table">
+    <thead>
+
+      <td>#</td>
+      <td>Product Name</td>
+      <td>Code</td>
+      <td>Price</td>
+      <td>Available</td>
+      <td *ngIf="img">Image</td>
+      <td>Rate</td>
+      <td>Edit</td>
+      <td>Delete</td>
+
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let item of productsArray | arraySplice : filter; let currentIndex=index ">
+        <td>{{item.productId}}</td>
+        <td>{{item.productName}} </td>
+        <td>{{item.productCode}}</td>
+        <td>{{item.productPrice}}</td>
+        <td> {{item.available  | date:'MMMM d, y' }} </td>
+        <td *ngIf="img">        <img alt="heh" src="{{ item.productImg }}" />
+          </td>
+        <td><p-rating [(ngModel)]="item.productRate"  [readonly]="true" [stars]="5" [cancel]="false"></p-rating></td>
+        <td><button type="button" (click)="delete(currentIndex)" class="btn btn-danger">Delete</button></td>
+        <td><button type="button" (click)="edit(productName.value, prodoctCode.value, productPrice.value, productImg.value, available.value,rating.value, item.productId)" class="btn btn-primary">Edit</button></td>
+
+      </tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <h1> Pipes test  </h1>
+  <div class="container">
+    <h2>Power To X</h2>
+
+    <h4>{{10| powerToX }}</h4>
+    <hr>
+    <h2>Convert string test</h2>
+    <h4>original list</h4>
+    <ul>
+      <li *ngFor="let x of strings"> {{x  }} </li>
+    </ul>
+    <br>
+    <h4>filtered list</h4>
+    <ul>
+      <li *ngFor="let x of strings |stringConvert"> {{x  }} </li>
+    </ul>
+    <hr>
+
+
+
+  </div>
+  </div>

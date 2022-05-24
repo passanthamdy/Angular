@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Day2": {
+    "Day3": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/day2",
+            "outputPath": "dist/day3",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Day2:build:production"
+              "browserTarget": "Day3:build:production"
             },
             "development": {
-              "browserTarget": "Day2:build:development"
+              "browserTarget": "Day3:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Day2:build"
+            "browserTarget": "Day3:build"
           }
         },
         "test": {
@@ -95,15 +95,12 @@
             ],
             "styles": [
               "src/styles.css",
-              "../node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": [
-              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-            ]
+            "scripts": []
           }
         }
       }
     }
   },
-  "defaultProject": "Day2"
+  "defaultProject": "Day3"
 }

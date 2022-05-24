@@ -1,16 +1,29 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CoreModule } from './core/core.module';
+
 import { AppComponent } from './app.component';
+import {ProductModule} from './product/product.module'
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {RatingModule} from 'primeng/rating';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     AppComponent,
 
+
+
   ],
   imports: [
     BrowserModule,
-    CoreModule
+    BrowserAnimationsModule,
+    ProductModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RatingModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
